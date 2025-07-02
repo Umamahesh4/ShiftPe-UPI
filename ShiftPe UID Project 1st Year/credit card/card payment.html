@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="Website Icon" type="png" href="top.png">
+    <title>Shift Pe Secure & Fast Upi Payments Mobile Recharges Book Flights</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            /* background: linear-gradient(to right, #d4eb08, #ee0a0a, #0ac9f9); */
+            background-image: linear-gradient(rgb(70, 167, 194), rgb(234, 234, 179));
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .container {
+            width: 511px;
+            margin: 18vh 56vh 0 114vh;
+        }
+        
+        #form {
+            padding: 64px;
+            background-color: whitesmoke;
+            border-radius: 42px;
+            font-size: 15px;
+        }
+        
+        #form h1 {
+            color: #0f2027;
+            text-align: center;
+        }
+        
+        #form button {
+            padding: 16px;
+            margin-top: 20px;
+            width: 100%;
+            color: white;
+            background-color: rgb(41, 57, 194);
+            border: none;
+            border-radius: 4px;
+        }
+        
+        .input-control {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-control input {
+            border: 2px solid #f0f0f0;
+            border-radius: 4px;
+            display: block;
+            font-size: 12px;
+            padding: 10px;
+            width: 100%;
+        }
+        
+        .input-control input:focus {
+            outline: 0;
+        }
+        
+        .input-control.success input {
+            border-color: #09c372;
+        }
+        
+        .input-control.error input {
+            border-color: #ff3860;
+        }
+        
+        .input-control .error {
+            color: #ff3860;
+            font-size: 9px;
+            height: 13px;
+        }
+        .creditimage{
+            position: absolute;
+            width: 440px;
+            left: 20px;
+            top: 60px;
+
+        }
+        .credit2image{
+            position: absolute;
+            width: 240px;
+            left: 120px;
+            top: 490px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="form" method="post" autocomplete="off" name="google-sheet">
+            <h1>Credit Card Details</h1>
+            <div class="input-control">
+                <label for="cardNumber">Card Number</label>
+                <input id="cardNumber" name="cardNumber" type="text" placeholder="1232-4562-7892-22" required>
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="cardholderName">Cardholder Name</label>
+                <input id="cardholderName" name="cardholderName" type="text" placeholder="Enter Name" required>
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="expiryDate">Expiry Date</label>
+                <input id="expiryDate" name="expiryDate" type="text" placeholder="01/2023">
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="cvv">CVV</label>
+                <input id="cvv" name="cvv" type="number" placeholder="123" required>
+                <div class="error"></div>
+            </div>
+            <button type="submit" name="submit" value="Submit">Submit Payment</button>
+        </form>
+        <img src="creditcardgif.gif" class="creditimage">
+        <img src="credit3.gif" class="credit2image">
+    </div>
+    <script>
+        const forms = document.getElementById('form');
+        const cardNumber = document.getElementById('cardNumber');
+        const cardholderName = document.getElementById('cardholderName');
+        const expiryDate = document.getElementById('expiryDate');
+        const cvv = document.getElementById('cvv');
+        var abc = 0;
+
+        forms.addEventListener('submit', e => {
+            e.preventDefault();
+            validateInputs();
+        });
+
+        const setError = (element, message) => {
+            const inputControl = element.parentElement;
+            const errorDisplay = inputControl.querySelector('.error');
+
+            errorDisplay.innerText = message;
+            inputControl.classList.add('error');
+            inputControl.classList.remove('success');
+        };
+
+        const setSuccess = element => {
+            const inputControl = element.parentElement;
+            const errorDisplay = inputControl.querySelector('.error');
+
+            errorDisplay.innerText = '';
+            inputControl.classList.add('success');
+            inputControl.classList.remove('error');
+        };
+
+        const validateInputs = () => {
+            const cardNumberValue = cardNumber.value.trim();
+            const cardholderNameValue = cardholderName.value.trim();
+            const expiryDateValue = expiryDate.value.trim();
+            const cvvValue = cvv.value.trim();
+
+            if (cardNumberValue === '') {
+                setError(cardNumber, 'Card number is required');
+            } else if (!isValidCardNumber(cardNumberValue)) {
+                setError(cardNumber, 'Invalid card number');
+            } else {
+                setSuccess(cardNumber);
+                abc = abc + 1;
+            }
+
+            if (cardholderNameValue === '') {
+                setError(cardholderName, 'Cardholder name is required');
+            } else if (/\d/.test(cardholderNameValue)) {
+                setError(cardholderName, 'Cardholder name should not contain digits');
+            } else {
+                setSuccess(cardholderName); 
+                abc = abc + 1;
+            }
+
+            if (expiryDateValue === '') {
+                setError(expiryDate, 'Expiry date is required');
+            } else if (!isValidExpiryDate(expiryDateValue)) {
+                setError(expiryDate, 'Invalid expiry date');
+            } else {
+                setSuccess(expiryDate);
+                abc = abc + 1;
+            }
+
+            if (cvvValue === '') {
+                setError(cvv, 'CVV is required');
+            } else if (!isValidCVV(cvvValue)) {
+                setError(cvv, 'Invalid CVV');
+            } else {
+                setSuccess(cvv);
+                abc = abc + 1;
+            }
+            if(abc == 4)
+        {const scriptURL = 'https://script.google.com/macros/s/AKfycbxiLgTnabbW4BIwJ8CN3rgK5Vtn9WRAhP0amhKaDWtdITOMwFUicI-FO6JM7OPFSwnWAg/exec'
+            const form = document.forms['google-sheet']
+            var url = 'https://shiftpeuidproject1styearbydmuc.on.drv.tw/ShiftPe%20UID%20Project%201st%20Year/conform%20message/conform%20message.html';
+            function openLinkInSamePage(url) {
+                window.location.href = url;
+            }
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => openLinkInSamePage(url) )
+                .catch(error => console.error('Error!', error.message))
+            }
+            )}
+        };
+
+        
+            
+           
+
+        const isValidCardNumber = cardNumber => {
+  // Implement your card number validation logic here
+  return /^\d{4}-\d{4}-\d{4}-\d{4}$/.test(cardNumber);
+};
+
+
+        const isValidExpiryDate = expiryDate => {
+            // Implement your expiry date validation logic here
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear();
+            const currentMonth = currentDate.getMonth() + 1; // Month is zero-based
+
+            const [inputMonth, inputYear] = expiryDate.split('/').map(Number);
+
+            if (
+              isNaN(inputMonth) ||
+              isNaN(inputYear) ||
+              inputMonth < 1 ||
+              inputMonth > 12 ||
+              inputYear < currentYear ||
+              (inputYear === currentYear && inputMonth <= currentMonth)
+            ) {
+              return false;
+            }
+
+            return true;
+        };
+
+        const isValidCVV = cvv => {
+            // Implement your CVV validation logic here
+            return /^\d{3}$/.test(cvv);
+        };
+
+
+        
+    </script>
+</body>
+</html>

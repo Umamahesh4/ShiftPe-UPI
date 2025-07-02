@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Shift Pe's Receive Money Form</title>
+    <link rel="Website Icon" type="png" href="top.png">
+    <style>
+        /* Reset default form styles */
+        * {
+            box-sizing: border-box;
+            margin: 4px;
+            padding: 0;
+            
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* this card is inspired form this - https://georgefrancis.dev/ */
+
+        .cardtemplate {
+            --border-radius: 0.75rem;
+            --primary-color: #7257fa;
+            --secondary-color: #3c3852;
+            width: 210px;
+            font-family: "Arial";
+            padding: 1rem;
+            cursor: pointer;
+            border-radius: var(--border-radius);
+            background: #f1f1f3;
+            box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 3%);
+            position: relative;
+            top: 100px;
+            left: 100px;
+        }
+
+        .cardtemplate>*+* {
+            margin-top: 1.1em;
+        }
+
+        .cardtemplate .card__content {
+            color: var(--secondary-color);
+            font-size: 0.86rem;
+        }
+
+        .cardtemplate .card__title {
+            padding: 0;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .cardtemplate .card__date {
+            color: #6e6b80;
+            font-size: 0.8rem;
+        }
+
+        .cardtemplate .card__arrow {
+            position: absolute;
+            background: var(--primary-color);
+            padding: 0.4rem;
+            border-top-left-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+            bottom: 0;
+            right: 0;
+            transition: 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cardtemplate svg {
+            transition: 0.2s;
+        }
+
+        /* hover */
+        .cardtemplate:hover .card__title {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .cardtemplate:hover .card__arrow {
+            background: #111;
+        }
+
+        .card:hover .card__arrow svg {
+            transform: translateX(3px);
+        }
+
+        .airtel {
+            position: absolute;
+            top: 100px;
+            left: 335px;
+            height: 90px;
+            border-radius: 10px;
+            width: 131px;
+        }
+
+        .jio {
+            position: absolute;
+            top: 200px;
+            left: 335px;
+            height: 90px;
+            border-radius: 10px;
+            width: 131px;
+        }
+
+        .vi {
+            position: absolute;
+            top: 300px;
+            left: 335px;
+            height: 90px;
+            border-radius: 10px;
+            width: 131px;
+
+        }
+
+        .bsnl {
+            position: absolute;
+            top: 400px;
+            left: 335px;
+            height: 90px;
+            border-radius: 10px;
+            width: 131px;
+
+        }
+
+        body {
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        }
+
+        /* form validate css comes here */
+        body {
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            font-family: 'Poppins', sans-serif;
+            background-image: linear-gradient(rgb(238, 248, 255),white);
+        }
+        .container{
+            background: linear-gradient(to right, #74929f, #b4c3c8, #d8dfe2);
+            height:710px;
+        }
+
+        #form {
+            width: 430px;
+            margin: 20vh auto 0 auto;
+            padding: 20px;
+            
+            border-radius: 24px;
+            font-size: 12px;
+            position: absolute;
+            left: 680px;
+            background-image: linear-gradient(rgb(70, 167, 194), rgb(234, 234, 179));
+
+        }
+
+        #form h1 {
+            color: #0399d9;
+            text-align: center;
+        }
+
+        #form button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            color: white;
+            background-color: rgb(41, 57, 194);
+            border: none;
+            border-radius: 4px;
+        }
+
+        .input-control {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-control input {
+            border: 2px solid #f0f0f0;
+            border-radius: 4px;
+            display: block;
+            font-size: 12px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .input-control input:focus {
+            outline: 0;
+        }
+
+        .input-control.success input {
+            border-color: #09c372;
+        }
+
+        .input-control.error input {
+            border-color: #ff3860;
+        }
+
+        .input-control .error {
+            color: #c51f2c;
+            font-size: 9px;
+            height: 13px;
+        }
+
+        #username {
+            /* border: 1px solid black; */
+            border-bottom: 2px solid black;
+        }
+
+        #password {
+
+            border-bottom: 2px solid black;
+
+        }
+
+        #password2 {
+            border-bottom: 2px solid black;
+
+        }
+
+        #recharge {
+            border-bottom: 2px solid black;
+        }
+
+        #email {
+
+            border-bottom: 2px solid black;
+
+
+        }
+
+        h1 {
+            position: absolute;
+            top: -40px;
+            left: 80.98px;
+
+        }
+        .sendmoneyimagegif{
+            width: 202px;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            
+        }
+        .sendgif2{
+            width: 202px;
+            position: relative;
+            top: 254px;
+            left: 310px;
+
+
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="form" action="/">
+            <h1>Receive Money Using UPI</h1>
+            <div class="input-control">
+                <label for="username"><b>Enter User name</b></label>
+                <input id="username" name="username" type="text">
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="email"><b>Enter Email/VPA</b></label>
+                <input id="email" name="email" type="text">
+                <div class="error"></div>
+            </div>
+            
+            <div class="input-control">
+                <label for="recharge"><b>Enter amount</b></label>
+                <input id="recharge" name="recharge" type="number">
+                <div class="error"></div>
+            </div>
+            <button type="submit">Request Money</button>
+        </form>
+
+        <!-- money logo -->
+        <img src="sendmoneygif.gif" class="sendmoneyimagegif">
+        <img src="sendmoneygif2.gif" class="sendgif2">
+
+
+       
+
+    <script src="receivemoney.js"></script>
+
+
+
+</body>
+
+</html>
